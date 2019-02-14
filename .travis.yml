@@ -17,8 +17,8 @@ after_success:
 #toma las imagenes y las sube a docker hub
 #para ello hay que loguearse en docker CLI
 
-- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-- docker push emm89/multi-client
-- docker push emm89/multi-nginx
-- docker push emm89/multi-server
-- docker push emm89/multi-worker
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push emm89/multi-client
+  - docker push emm89/multi-nginx
+  - docker push emm89/multi-server
+  - docker push emm89/multi-worker
