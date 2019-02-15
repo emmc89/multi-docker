@@ -19,3 +19,16 @@ after_success:
   - docker push emoscoso/multi-nginx
   - docker push emoscoso/multi-server
   - docker push emoscoso/multi-worker
+
+deploy:
+  provider: elasticbeanstalk #use it set of instruction for deploy
+  region: "us-west-2" #region of aws
+  app: "multi-docker" #name
+  env: "MultiDocker-env-1" #name
+  bucket_name: "elasticbeanstalk-us-west-2-336142811313"
+  bucket_path: "docker-multi"
+  on:
+    branch: master #just deploy from master branch
+  access_key_id: "$AWS_KEY"
+  secret_access_key:
+      secure: "$AWS_SECRET" #AWS Access IAM
