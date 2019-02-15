@@ -10,15 +10,15 @@ script:
 
 
 after_success:
-  - docker build -t emm89/multi-client ./client
-  - docker build -t emm89/multi-nginx  ./nginx
-  - docker build -t emm89/multi-server ./server
-  - docker build -t emm89/multi-worker ./worker
+  - docker build -t emmc89/multi-client ./client
+  - docker build -t emmc89/multi-nginx  ./nginx
+  - docker build -t emmc89/multi-server ./server
+  - docker build -t emmc89/multi-worker ./worker
 #toma las imagenes y las sube a docker hub
 #para ello hay que loguearse en docker CLI
 
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push emm89/multi-client
-  - docker push emm89/multi-nginx
-  - docker push emm89/multi-server
-  - docker push emm89/multi-worker
+  - docker push emmc89/multi-client
+  - docker push emmc89/multi-nginx
+  - docker push emmc89/multi-server
+  - docker push emmc89/multi-worker
