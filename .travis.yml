@@ -3,22 +3,19 @@ services:
   - docker
 
 before_install:
-  - docker build -t emmc89/react-test -f ./client/Dockerfile.dev ./client
-
+  - docker build -t emoscoso/react-test -f ./client/Dockerfile.dev ./client
 script:
-  - docker run emmc89/react-test npm test --  --coverage
-
-
+  - docker run emoscoso/react-test npm test --  --coverage
 after_success:
-  - docker build -t emmc89/multi-client ./client
-  - docker build -t emmc89/multi-nginx  ./nginx
-  - docker build -t emmc89/multi-server ./server
-  - docker build -t emmc89/multi-worker ./worker
+  - docker build -t emoscoso/multi-client ./client
+  - docker build -t emoscoso/multi-nginx  ./nginx
+  - docker build -t emoscoso/multi-server ./server
+  - docker build -t emoscoso/multi-worker ./worker
 #toma las imagenes y las sube a docker hub
 #para ello hay que loguearse en docker CLI
 
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push emmc89/multi-client
-  - docker push emmc89/multi-nginx
-  - docker push emmc89/multi-server
-  - docker push emmc89/multi-worker
+  - docker push emoscoso/multi-client
+  - docker push emoscoso/multi-nginx
+  - docker push emoscoso/multi-server
+  - docker push emoscoso/multi-worker
