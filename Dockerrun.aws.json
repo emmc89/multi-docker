@@ -11,7 +11,6 @@
         {
             "name": "server",
             "image": "emoscoso/multi-server",
-            "_comment":"esta es una etiqueta de comntario cambiamos en el archi de ruteo de nginx de server a api",
             "hostname": "api", 
             "essential": false,
             "memory": 128 
@@ -26,7 +25,7 @@
         {
             "name": "nginx",
             "image": "emoscoso/multi-nginx",
-            "hostname": "client",
+            "hostname": "nginx",
             "essential": true,
             "portMappings":[
                 {
